@@ -80,7 +80,7 @@ var params = {
  ```
 
 # Start Application:
-Go to the root directory . Run the command
+Once Dynamo DB is running in local and table is created go to the root directory . Run the command
 ```
 mvn spring-boot:run
 ```
