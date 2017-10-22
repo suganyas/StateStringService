@@ -14,8 +14,8 @@
 
 * Since cookies were not allowed to use I have used UUID generator of java library to generate userId
 * I have used Dynamo DB since the application can be easily deployed in AWS cloud
-* Right now the configurations in the application.properties ar pointing to local but cna be made production ready jusy by updating the url and keys
-* Reagrding : POST /chars - adds the character/s to the string state, e.g. with JSON input {“character”:”a”,”amount”:3} adds “aaa” to the state string : I assumed that the characters are added at end
+* Right now the configurations in the application.properties are pointing to local but can be made production ready jusy by updating the url and keys
+* Regarding : POST /chars - adds the character/s to the string state, e.g. with JSON input {“character”:”a”,”amount”:3} adds “aaa” to the state string : I assumed that the characters are added at end
 
 #PreRequisites :
 
@@ -80,10 +80,45 @@ Go to the root directory . Run the command
 ```
 mvn spring-boot:run
 ```
-You can see the end points in Swagger Docs: localhost:8080/swagger-ui.html
+You can see the end points in Swagger Docs: http://localhost:8080/swagger-ui.html
 
 #Run UnitTests:
 Go to the root directory . Run the command
 ```
 mvn verify
 ```
+#Requirements Completion Status:
+
+Created Java & Spring Boot,  RESTful, JSON-based web service that keeps a String state per person (per browser).
+The initial state for new user is empty String ""
+
+#requirements:
+
+* do not use cookies - Done
+* each operation logs what it is doing in a log/console, e.g. userID: “ab85c56a”, added: “a”, 2
+times - Logged trace, info, error statements
+* two different browsers from single computer are two different users - Since cookies could nto be used I used UUID which might not change with browser. I did not get the requirement clearly 
+* provide an instruction how to install your solution (including dependencies) and start it (on
+linux or mac) - provided above
+
+#supported operations: All Done
+- GET /state - returns the current state - Done
+- GET /sum - sums all numbers in a string, e.g. “5abc141def” returns 146, if there are no numbers return 0 - Done
+- GET /chars - shows the current state without numbers, e.g. “5abc141def” returns abcdef - Done
+- POST /chars - adds the character/s to the string state, e.g. with JSON input {“character”:”a”,”amount”:3} adds “aaa” to the state string - Done
+- DELETE /chars/<character> - deletes the last occurrence of the character in the state string - Done
+
+# web services requirements: All Done
+- return 400 if the POST request contains invalid JSON
+- character in DELETE has to be a single alphanumeric character, otherwise return 400
+- character in POST request has to be just one alphanumeric character and amount a number
+from 1 to 9, otherwise return 400
+- if the length of the string state will exceed 200 characters after the POST request, do not
+change the state and return 400
+- wrong url returns 404
+- each valid JSON response (200 class) includes a user hash/id
+
+#bonus points: All done
+- put your solution on GitHub (personal account)
+- write unit tests
+- use database to store the state
