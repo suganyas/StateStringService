@@ -25,7 +25,7 @@ Have added an end point /addState just for adding a state String for testing pur
 
 Download the Dynamodb JAR for setting up the DB in local from the link : http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
 
-Extract the Jar and run the command :java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jarsharedDb
+Extract the Jar and run the command : java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar sharedDb
 
 Once the DynamoDB started goto http://localhost:8000/shell and Create a table named User :
 ```
