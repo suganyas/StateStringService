@@ -1,23 +1,27 @@
 # StateStringService
 
-#Required :
+# Required :
 
 - Maven
 - Java 8
 
-#Tools and DB Used:
+# Tools and DB Used:
 - DynamoDB 
 - Swagger
 - Unit Tests: Junit, Mockito
 
-#Assumptions and considerations :
+# Assumptions and considerations :
 
 * Since cookies were not allowed to use I have used UUID generator of java library to generate userId
 * I have used Dynamo DB since the application can be easily deployed in AWS cloud
 * Right now the configurations in the application.properties are pointing to local but can be made production ready jusy by updating the url and keys
 * Regarding : POST /chars - adds the character/s to the string state, e.g. with JSON input {“character”:”a”,”amount”:3} adds “aaa” to the state string : I assumed that the characters are added at end
 
-#PreRequisites :
+# Endpoint for Testing:
+
+Have added an end point /addState just for adding a state String for testing purpose
+
+# PreRequisites :
 
 Download the Dynamodb JAR for setting up the DB in local from the link : http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
 
@@ -75,24 +79,24 @@ var params = {
  });
  ```
 
-#Start Application:
+# Start Application:
 Go to the root directory . Run the command
 ```
 mvn spring-boot:run
 ```
 You can see the end points in Swagger Docs: http://localhost:8080/swagger-ui.html
 
-#Run UnitTests:
+# Run UnitTests:
 Go to the root directory . Run the command
 ```
 mvn verify
 ```
-#Requirements Completion Status:
+# Requirements Completion Status:
 
 Created Java & Spring Boot,  RESTful, JSON-based web service that keeps a String state per person (per browser).
 The initial state for new user is empty String ""
 
-#requirements:
+# requirements:
 
 * do not use cookies - Done
 * each operation logs what it is doing in a log/console, e.g. userID: “ab85c56a”, added: “a”, 2
@@ -101,7 +105,7 @@ times - Logged trace, info, error statements
 * provide an instruction how to install your solution (including dependencies) and start it (on
 linux or mac) - provided above
 
-#supported operations: All Done
+# supported operations: All Done
 - GET /state - returns the current state - Done
 - GET /sum - sums all numbers in a string, e.g. “5abc141def” returns 146, if there are no numbers return 0 - Done
 - GET /chars - shows the current state without numbers, e.g. “5abc141def” returns abcdef - Done
@@ -118,7 +122,7 @@ change the state and return 400
 - wrong url returns 404
 - each valid JSON response (200 class) includes a user hash/id
 
-#bonus points: All done
+# bonus points: All done
 - put your solution on GitHub (personal account)
 - write unit tests
 - use database to store the state
