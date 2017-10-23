@@ -5,7 +5,8 @@
 - Maven
 - Java 8
 
-# Tools and DB Used:
+# Tools/Libraries and DB Used:
+
 - DynamoDB 
 - Swagger
 - Unit Tests: Junit, Mockito
@@ -80,13 +81,15 @@ var params = {
  ```
 
 # Start Application:
+
 Once Dynamo DB is running in local and table is created go to the root directory . Run the command
 ```
 mvn spring-boot:run
 ```
-You can see the end points in Swagger Docs: http://localhost:8080/swagger-ui.html
+You can see the end points in Swagger with Docs: http://localhost:8080/swagger-ui.html
 
 # Run UnitTests:
+
 Go to the root directory . Run the command
 ```
 mvn verify
@@ -101,11 +104,12 @@ The initial state for new user is empty String ""
 * do not use cookies - Done
 * each operation logs what it is doing in a log/console, e.g. userID: “ab85c56a”, added: “a”, 2
 times - Logged trace, info, error statements
-* two different browsers from single computer are two different users - Since cookies could not be used I used UUID which will change with the browser session since the scope of the controller is session 
+* two different browsers from single computer are two different users - Since cookies could not be used I used UUID which will change with the browser since the scope of the controller is "session" and user from same machine and different browser will be treated as different clients and tabs in same browser as same client 
 * provide an instruction how to install your solution (including dependencies) and start it (on
 linux or mac) - provided above
 
 # supported operations: All Done
+
 - GET /state - returns the current state - Done
 - GET /sum - sums all numbers in a string, e.g. “5abc141def” returns 146, if there are no numbers return 0 - Done
 - GET /chars - shows the current state without numbers, e.g. “5abc141def” returns abcdef - Done
@@ -113,6 +117,7 @@ linux or mac) - provided above
 - DELETE /chars/<character> - deletes the last occurrence of the character in the state string - Done
 
 # web services requirements: All Done
+
 - return 400 if the POST request contains invalid JSON
 - character in DELETE has to be a single alphanumeric character, otherwise return 400
 - character in POST request has to be just one alphanumeric character and amount a number
@@ -123,6 +128,7 @@ change the state and return 400
 - each valid JSON response (200 class) includes a user hash/id
 
 # bonus points: All done
+
 - put your solution on GitHub (personal account)
 - write unit tests
 - use database to store the state
