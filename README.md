@@ -7,9 +7,10 @@
 
 # Tools/Libraries and DB Used:
 
-- DynamoDB 
-- Swagger
+- DB : DynamoDB 
+- REST API doc : Swagger
 - Unit Tests: Junit, Mockito
+- Logging : Simple Logging Facade for Java (SLF4J)
 
 # Assumptions and considerations :
 
