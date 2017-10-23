@@ -8,6 +8,7 @@ import com.statestringservice.utils.StateStringUtils;
 import com.statestringservice.exception.StateStringException;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RestController
+@Scope("session")
 public class StateStringController {
 	@Autowired
 	private UserService userService;

@@ -101,7 +101,7 @@ The initial state for new user is empty String ""
 * do not use cookies - Done
 * each operation logs what it is doing in a log/console, e.g. userID: “ab85c56a”, added: “a”, 2
 times - Logged trace, info, error statements
-* two different browsers from single computer are two different users - Since cookies could not be used I used UUID which might not change with browser. I did not get the requirement clearly 
+* two different browsers from single computer are two different users - Since cookies could not be used I used UUID which will change with the browser session since the scope of the controller is session 
 * provide an instruction how to install your solution (including dependencies) and start it (on
 linux or mac) - provided above
 
